@@ -1,6 +1,7 @@
 import { Component, VERSION, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { VgPlayer } from 'ngx-videogular';
 import { Subscription, timer } from 'rxjs';
+import { VideoSentence, videoText } from './videoDataMsg';
 
 @Component({
   selector: 'app-video',
@@ -13,10 +14,14 @@ export class VideoComponent implements OnInit, OnDestroy, AfterViewInit {
   public videoTime =  0;
 
   @ViewChild(VgPlayer) vgPlayer : VgPlayer | undefined
+  public videoMessage: VideoSentence [];
 
-  constructor() { }
+  constructor() {
+    this.videoMessage = videoText;
+  }
 
   ngOnInit(): void {
+
   }
 
   public vgPlayerChanged(event: any) {
@@ -34,9 +39,18 @@ export class VideoComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
    this.timerSubsc =  timer(0, 1000).subscribe(n => {
     //console.log('timer', n);
-    this.videoTime =  parseInt(this.vgPlayer?.api.currentTime, 10);
+    this.resetHiglihtedVideoByVideTime(parseInt(this.vgPlayer?.api.currentTime, 10));
    // console.log('Video time is:', this.videoTime );
   });
+  }
+
+  resetHiglihtedVideoByVideTime( videoTime: number) {
+    this.videoTime =  videoTime;
+    this.videoMessage.forEach ( vSentence => {
+      vSentence.currentlyInSpeach = (videoTime >= vSentence.timeInterval[0] && 
+        videoTime <= vSentence.timeInterval[1]) ;
+    });
+
   }
 
   ngOnDestroy(): void {

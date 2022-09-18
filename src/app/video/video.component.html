@@ -1,4 +1,7 @@
 <h1>Hello from {{name}}</h1>
+<div class="main-video">
+
+
 <div class="video-container">
 
 <vg-player #vgPlayer onChangeFullscreen="vgPlayerChanged()">
@@ -43,8 +46,14 @@
   </video>
 </vg-player>
 </div>
+<div>
+  <div *ngFor="let vMsg of videoMessage">
+    <span [ngClass]="{'in-current-time': vMsg.currentlyInSpeach}">{{vMsg.message}}</span>
+  </div>
+</div>
+</div>
 <div class="buttons">
-    <pre> Vide time is {{videoTime}}</pre>
+    <pre> Video time is {{videoTime}}</pre>
 </div>
 <div class="buttons">
     <button (click)="accessVgPlayer()">AcessVgPlayer</button>

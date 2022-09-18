@@ -1,9 +1,16 @@
+.main-video {
+    display: flex;
+    gap: 10px;
+}
 .buttons {
     margin-top: 30px;
 }
 
 .video-container {
     max-width: 70%;
+}
+.in-current-time{
+    background-color: yellow;
 }
 video {
     max-width: 99%;
