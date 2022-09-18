@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { VideoComponent } from './video/video.component';
+import { RecordVideoComponent } from './record-video/record-video.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    VideoComponent
+    VideoComponent,
+    RecordVideoComponent
   ],
   imports: [
     BrowserModule,
