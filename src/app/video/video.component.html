@@ -1,0 +1,51 @@
+<h1>Hello from {{name}}</h1>
+<div class="video-container">
+
+<vg-player #vgPlayer onChangeFullscreen="vgPlayerChanged()">
+  <vg-overlay-play></vg-overlay-play>
+  <vg-buffering></vg-buffering>
+
+  <vg-scrub-bar>
+    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+    <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+  </vg-scrub-bar>
+
+  <vg-controls>
+    <vg-play-pause></vg-play-pause>
+    <vg-playback-button></vg-playback-button>
+
+    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+    <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+    <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+    <vg-track-selector></vg-track-selector>
+    <vg-mute></vg-mute>
+    <vg-volume></vg-volume>
+
+    <vg-fullscreen></vg-fullscreen>
+  </vg-controls>
+
+  <video
+    #media
+    [vgMedia]="$any(media)"
+    id="singleVideo"
+    preload="auto"
+    controls
+  >
+  <!--src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" -->
+    <source
+      src="assets/MonicaCornea_2012_02_23.mp4"
+      type="video/mp4"
+    />
+  </video>
+</vg-player>
+</div>
+<div class="buttons">
+    <pre> Vide time is {{videoTime}}</pre>
+</div>
+<div class="buttons">
+    <button (click)="accessVgPlayer()">AcessVgPlayer</button>
+</div>
