@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RecordVideoComponent } from './record-video/record-video.component';
 import { VideoComponent } from './video/video.component';
+import { YoutubeVideComponent } from './youtube-vide/youtube-vide.component';
 
 const routes: Routes = [ {
   path: 'home',
@@ -11,6 +12,10 @@ const routes: Routes = [ {
 {
   path: 'video',
   component: VideoComponent
+},
+{
+  path: 'youtube-video',
+  component: YoutubeVideComponent
 },
 {
   path: 'record-video',
