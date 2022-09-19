@@ -13,7 +13,7 @@ export class VideoComponent implements OnInit, OnDestroy, AfterViewInit {
   timerSubsc: Subscription | undefined;
   public videoTime =  0;
 
-  @ViewChild(VgPlayer) vgPlayer : VgPlayer | undefined
+  @ViewChild(VgPlayer) vgPlayer : VgPlayer | undefined;
   public videoMessage: VideoSentence [];
 
   constructor() {

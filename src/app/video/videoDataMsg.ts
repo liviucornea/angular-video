@@ -5,7 +5,7 @@ export interface VideoSentence {
 }
 
 export const videoText : VideoSentence [] = [
-    { timeInterval: [1, 2],
+    { timeInterval: [0, 2],
         message : 'Are you going to bring the ball?'},
     { timeInterval: [3, 8],
     message : `Yes, I will go to bring the ball, 
@@ -17,13 +17,15 @@ export const videoText : VideoSentence [] = [
     { timeInterval: [24, 28],
                 message : `Mom is in the water, is swimming now. 
                 She will not feel confortable to come out for the toy and than go back and swimm!`},
-    { timeInterval: [30, 32],
+    { timeInterval: [29, 31],
         message : `What?`
     }  ,          
-    { timeInterval: [32, 37],
+    { timeInterval: [32, 36],
         message : `Mom is in the water, is swimming now. 
         She will not feel confortable to come out for the toy and than go back and swimm!`},
-
+        { timeInterval: [37, 40],
+            message : `Look at mek now! You are special child, you look super!!`},
+    
     { timeInterval: [47, 50],
                     message : `Tati take the picture!`}
 ]
