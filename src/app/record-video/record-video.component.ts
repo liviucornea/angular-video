@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 declare var MediaRecorder: any;
 
@@ -7,7 +7,7 @@ declare var MediaRecorder: any;
   templateUrl: './record-video.component.html',
   styleUrls: ['./record-video.component.scss']
 })
-export class RecordVideoComponent implements OnInit {
+export class RecordVideoComponent implements OnInit, OnDestroy {
   @ViewChild('recordedVideo')
   recordVideoElementRef!: ElementRef;
   @ViewChild('video')
@@ -96,6 +96,11 @@ export class RecordVideoComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  ngOnDestroy(): void {
+    // this.mediaRecorder.stop();
+      this.mediaRecorder = null;
   }
 
 }
