@@ -6,16 +6,24 @@ export interface VideoSentence {
 
 export const videoText : VideoSentence [] = [
     { timeInterval: [1, 2],
-        message : 'Where is the toy?'},
+        message : 'Are you going to bring the ball?'},
     { timeInterval: [3, 8],
-    message : 'We do not have the toy!'},
-    { timeInterval: [9, 12],
-        message : 'We need to go and bring it!'},
-    { timeInterval: [13, 24],
+    message : `Yes, I will go to bring the ball, 
+    or mom will go to bring it because now I am filming you! Ok?`},
+    { timeInterval: [11, 15],
+        message : 'You can play now. Let go and ask mom to go and bring the ball'},
+    { timeInterval: [17, 19],
             message : 'Mom will go and bring it!'},
-    { timeInterval: [25, 40],
-                message : `Mom is in the water. 
+    { timeInterval: [24, 28],
+                message : `Mom is in the water, is swimming now. 
                 She will not feel confortable to come out for the toy and than go back and swimm!`},
-    { timeInterval: [41, 50],
+    { timeInterval: [30, 32],
+        message : `What?`
+    }  ,          
+    { timeInterval: [32, 37],
+        message : `Mom is in the water, is swimming now. 
+        She will not feel confortable to come out for the toy and than go back and swimm!`},
+
+    { timeInterval: [47, 50],
                     message : `Tati take the picture!`}
 ]
