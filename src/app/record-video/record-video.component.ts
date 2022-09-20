@@ -20,6 +20,7 @@ export class RecordVideoComponent implements OnInit, OnDestroy {
   isRecording: boolean = false;
   downloadUrl!: string;
   stream!: MediaStream;
+  isPlayingRecording = false;
 
   constructor() { }
 
@@ -33,6 +34,11 @@ export class RecordVideoComponent implements OnInit, OnDestroy {
       })
       .then(stream => {
         this.videoElement = this.videoElementRef.nativeElement;
+        // next 2 lines to eliminat microphone hiss
+        //How to avoid echo and noise in javascript for webrtc
+        // https://stackoverflow.com/questions/18406193/how-to-avoid-echo-and-noise-in-javascript-for-webrtc
+        this.videoElement.volume = 0;
+        this.videoElement.muted = true;
         this.recordVideoElement = this.recordVideoElementRef.nativeElement;
 
         this.stream = stream;
@@ -41,6 +47,7 @@ export class RecordVideoComponent implements OnInit, OnDestroy {
   }
 
   startRecording() {
+    this.isPlayingRecording = false;
     this.recordedBlobs = [];
     let options: any = { mimeType: 'video/webm' };
 
@@ -65,11 +72,17 @@ export class RecordVideoComponent implements OnInit, OnDestroy {
   }
 
   playRecording() {
+    this.isPlayingRecording = true;
     if (!this.recordedBlobs || !this.recordedBlobs.length) {
       console.log('cannot play.');
       return;
     }
     this.recordVideoElement.play();
+    this.recordVideoElement.onended = (event) => {
+      console.log('Video stopped either because 1) it was over, ' +
+          'or 2) no further data is available.');
+          this.isPlayingRecording = false;
+    };
   }
 
   onDataAvailableEvent() {
