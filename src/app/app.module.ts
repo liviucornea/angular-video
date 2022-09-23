@@ -9,6 +9,7 @@ import { VideoComponent } from './video/video.component';
 import { RecordVideoComponent } from './record-video/record-video.component';
 import { YoutubeVideComponent } from './youtube-vide/youtube-vide.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { ChildHomeComponent } from './home/child-home/child-home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     HomeComponent,
     VideoComponent,
     RecordVideoComponent,
-    YoutubeVideComponent
+    YoutubeVideComponent,
+    ChildHomeComponent
   ],
   imports: [
     BrowserModule,

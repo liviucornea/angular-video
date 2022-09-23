@@ -1,1 +1,10 @@
-<p>home works!</p>
+<span> Home component with child component and POC for onChange decorator</span>
+
+
+<div>
+   <app-child-home [name]="nameForChild"></app-child-home> 
+</div>
+
+<div>
+    <button (click)="changeNameForChild()">Change the input</button>
+</div>
