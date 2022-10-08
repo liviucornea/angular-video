@@ -25,10 +25,10 @@ function Get(url: string) {
     function First() {
         return function(target: any, name: string) {
             const hiddenInstanceKey = "_$$" + name + "$$_";
-            const prevInit = Object.getOwnPropertyDescriptor(target, name).get;
+            const prevInit =  Object.getOwnPropertyDescriptor(target, name)?.get; 
             const init = () => {
-              return prevInit()
-                .then(response => response[0]); 
+              return prevInit ? prevInit()
+                .then((response: ITodo[]) => response[0]) : []; 
             };
         
             Object.defineProperty(target, name, {
@@ -42,7 +42,7 @@ function Get(url: string) {
     class TodoService {
         @First()
         @Get('https://jsonplaceholder.typicode.com/todos')
-        todos: Promise<ITodo[]>;
+        todos: Promise<ITodo[]> =  Promise.resolve([]);
       }
 
       // type predicate
